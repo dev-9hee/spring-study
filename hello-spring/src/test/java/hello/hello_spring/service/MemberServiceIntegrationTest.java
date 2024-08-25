@@ -26,7 +26,7 @@ class MemberServiceIntegrationTest {
     public void 회원가입() throws Exception {
         // given, 주어졌어
         Member member = new Member();
-        member.setName("spring100");
+        member.setName("spring1000");
 
         // when, 실행했을 때
         Long saveId = memberService.join(member);
