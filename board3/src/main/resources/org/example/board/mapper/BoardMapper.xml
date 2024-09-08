@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.example.board.mapper.BoardMapper">
+    <select id="getList" resultType="Board">
+    -- 문제 1. 게시판 목록 기능 구현하기 : 적절한 SQL 구문을 작성해 주세요
+    select * from boards order by id desc;
+    </select>
+
+    <insert id="create">
+    -- 문제 2. 게시글 작성 기능 구현하기 : 적절한 SQL 구문을 작성해 주세요
+    insert into boards (title, content, author)
+    values (#{title}, #{content}, #{author});
+    </insert>
+
+    <select id="detail" resultType="Board">
+    -- 문제 3. 게시글 내용 보기 기능 구현하기 : 적절한 SQL 구문을 작성해 주세요
+    select * from boards where id = #{id};
+    </select>
+
+    <delete id="delete">
+    -- 문제 4. 게시글 삭제 기능 구현하기
+    delete from boards where id = #{id};
+    </delete>
+
+    <update id="update">
+    -- 문제 5. 게시글 수정 기능 구현하기
+    update boards set title=#{title}, content=#{content} where id = #{id};
+    </update>
+</mapper>
